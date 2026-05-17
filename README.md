@@ -1,4 +1,4 @@
-# antlr4
+# antlr4-coursework
 
 这是一个 ANTLR4 课程演示项目，包含两个 Java 命令行程序：
 
