@@ -1,61 +1,61 @@
 # antlr4
 
-ANTLR4 demo project with two Java console programs:
+这是一个 ANTLR4 课程演示项目，包含两个 Java 命令行程序：
 
-- `calculator`: expression calculator.
-- `relationtoSQL`: simple relation-algebra-to-SQL printer.
+- `calculator`：表达式计算器。
+- `relationtoSQL`：简化关系代数到 SQL 的转换器。
 
-The project uses Java 17, Maven, ANTLR 4.13.2, and JUnit 5.
+项目使用 Java 17、Maven、ANTLR 4.13.2 和 JUnit 5。
 
-## Test
+## 运行测试
 
 ```powershell
 mvn test
 ```
 
-## Run calculator
+## 运行计算器
 
 ```powershell
 mvn -q exec:java "-Dexec.mainClass=calculator.CalcPortal"
 ```
 
-Example:
+输入示例：
 
 ```text
 1+2*3
 ```
 
-Expected output:
+预期输出：
 
 ```text
 7.0
 ```
 
-## Run relationtoSQL
+## 运行 relationtoSQL
 
 ```powershell
 mvn -q exec:java "-Dexec.mainClass=relationtosql.RelationToSQLPortal"
 ```
 
-Example:
+输入示例：
 
 ```text
 Ha(b);
 ```
 
-Expected output:
+预期输出：
 
 ```text
 SELECT a FROM (b)
 ```
 
-Supported relation symbols:
+支持的关系代数符号：
 
-| Symbol | Meaning | Example |
+| 符号 | 含义 | 示例 |
 |---|---|---|
-| `H` | projection | `Ha,b(c);` |
-| `G` | selection | `Ga=1@b>2(c);` |
-| `*` | union | `Ha(b)*Hc(d);` |
-| `~` | intersection | `Ha(b)~Hc(d);` |
-| `&` | natural join | `b&c;` |
-| `/` | division | unsupported, reports `ERROR: unsupported operation: division` |
+| `H` | 投影 | `Ha,b(c);` |
+| `G` | 选择 | `Ga=1@b>2(c);` |
+| `*` | 并 | `Ha(b)*Hc(d);` |
+| `~` | 交 | `Ha(b)~Hc(d);` |
+| `&` | 自然连接 | `b&c;` |
+| `/` | 除法 | 暂不支持，会输出 `ERROR: unsupported operation: division` |
